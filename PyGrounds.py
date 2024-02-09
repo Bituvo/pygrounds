@@ -10,8 +10,8 @@ class _Spectrograph:
     condensed_url: str
 
 class Audio:
-    def __init__(self, id):
-        self.id = id
+    def __init__(self, song_id):
+        self.id = song_id
 
         self.refresh()
 
