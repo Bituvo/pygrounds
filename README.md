@@ -91,3 +91,7 @@ Download URL for the song.
 ### `track_image` (`str`)
 
 URL for the track image of the song.
+
+### `refresh` (method)
+
+Refreshes all information on the song.
