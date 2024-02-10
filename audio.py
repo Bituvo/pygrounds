@@ -36,11 +36,15 @@ class Audio:
 
         if faves_text_element:
             faves = faves_text_element.find_next("dd").find("a").text
-            votes = social_statistics.find("dt", string="Votes").find_next("dd").text
+            votes_text_element = social_statistics.find("dt", string="Votes")
+            if votes_text_element:
+                votes = votes_text_element.find_next("dd").text
+                self.votes = int(votes.replace(",", ""))
+            else:
+                self.votes = None
             score = soup.find("meta", {"itemprop": "ratingValue"}).attrs["content"]
 
             self.faves = int(faves.replace(",", ""))
-            self.votes = int(votes.replace(",", ""))
             self.score = float(score) / 10
         else:
             self.faves = None
@@ -98,5 +102,3 @@ class Audio:
         for attr in dir(self):
             if not attr.startswith("_"):
                 print(f"self.{attr} -> {getattr(self, attr)}")
-
-song = Audio(1293015)
