@@ -98,7 +98,3 @@ class Audio:
         self.download_url = url.replace("\\/", "/")
 
         self.track_image = soup.find("meta", {"property": "og:image"}).attrs["content"]
-
-        for attr in dir(self):
-            if not attr.startswith("_"):
-                print(f"self.{attr} -> {getattr(self, attr)}")
